@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SpaceJet</string>
+    <string name="loose_message">You Lose!\nScore:\t</string>
+    <string name="try_again">Try again</string>
+    <string name="quit">Quit</string>
+    <string name="loose_title">SpaceJet</string>
+    <string name="back_menu">Back</string>
+    <string name="record_title">YOU SET A NEW RECORD!</string>
+    <string name="record_message">You are smashing it!!\nThe new record to beat is:\t</string>
+    <string name="show_record_title">STATISTICS</string>
+    <string name="show_record_message">The record to beat is:\t</string>
+</resources>
