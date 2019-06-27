@@ -1,12 +1,10 @@
-package com.example.gabriele.spacejet;
+package com.onthewifi.casacalarota.spacejet;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.media.MediaPlayer;
-import android.provider.MediaStore;
-import android.view.View;
 
 /**
  * Created by Gabriele on 01/06/2017.
@@ -108,6 +106,14 @@ public class Player {
         return x;
     }
 
+    public int getNoseX(){
+        return x + bitmap.getWidth();
+    }
+
+    public int getHeight(){
+        return bitmap.getHeight();
+    }
+
     public void decreaseLife(){
         life--;
         if (bloop.isPlaying()) {
@@ -158,4 +164,9 @@ public class Player {
     public int getLife() {
         return life;
     }
+
+    public int getNoseY(){
+        return y + getHeight()/2;
+    }
+
 }

@@ -1,11 +1,8 @@
-package com.example.gabriele.spacejet;
+package com.onthewifi.casacalarota.spacejet;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Rect;
-
-import java.util.Random;
 
 /**
  * Created by Gabriele on 01/06/2017.

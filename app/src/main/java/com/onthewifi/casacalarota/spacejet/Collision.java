@@ -1,4 +1,4 @@
-package com.example.gabriele.spacejet;
+package com.onthewifi.casacalarota.spacejet;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -38,6 +38,25 @@ public class Collision {
             }
             return false;
         }
+
+    public static boolean isCollisionDetected(int x1, int y1, int w1, int h1,
+                                              int x2, int y2, int w2, int h2) {
+
+        Rect bounds1 = new Rect(x1, y1, x1+w1, y1+h1);
+        Rect bounds2 = new Rect(x2, y2, x2+w2, y2+h2);
+
+        /*Rect collisionBounds = getCollisionBounds(bounds1, bounds2);
+            for (int i = collisionBounds.left; i < collisionBounds.right; i++) {
+                for (int j = collisionBounds.top; j < collisionBounds.bottom; j++) {
+                    int bitmap1Pixel = bitmap1.getPixel(i-x1, j-y1);
+                    int bitmap2Pixel = bitmap2.getPixel(i-x2, j-y2);
+                    if (isFilled(bitmap1Pixel) && isFilled(bitmap2Pixel)) {
+                        return true;
+                    }
+                }
+            }*/
+        return Rect.intersects(bounds1, bounds2);
+    }
 
         private static Rect getCollisionBounds(Rect rect1, Rect rect2) {
             int left = (int) Math.max(rect1.left, rect2.left);

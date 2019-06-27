@@ -1,11 +1,11 @@
-package com.example.gabriele.spacejet;
+package com.onthewifi.casacalarota.spacejet;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 
-import com.example.gabriele.spacejet.R;
+import com.onthewifi.casacalarota.spacejet.R;
 
 import java.util.Random;
 
@@ -21,12 +21,15 @@ public class Rocks {
     private int speed;
     private Bitmap bitmap;
     private boolean active;
+    private int life;
+    static final int MAX_LIFE = 14;
     private Rect detectCollision;
 
     private final int MAX_SPEED = 10;
     public Rocks(Context context,int screenX,int screenY){
         x = screenX;
-
+        Random r = new Random();
+        life = r.nextInt(MAX_LIFE)+1;
         speed = MAX_SPEED;
         bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.rock);
 
@@ -42,20 +45,34 @@ public class Rocks {
         return r.nextInt(screenY-bitmap.getHeight());
     }
 
+    public int getLife() {
+        return life;
+    }
+    public void decreaseLife(){
+        if (!isDead())
+            life--;
+    }
+
+    public boolean isDead(){
+        return life<=0;
+    }
+
+    public void funeral(){
+        this.active = false;
+        x = screenX;
+        y = generateY();
+    }
+
     public void update(Player p){
         if (active){
             this.x -= speed;
             if (this.x < (-bitmap.getWidth()/4)){
                 //p.updateScore();
-                this.active = false;
-                x = screenX;
-                y = generateY();
+                funeral();
             }
             else {
                 if (Collision.isCollisionDetected(p.getBitmap(),p.getX(),p.getY(),bitmap,x,y)) {
-                    this.active = false;
-                    x = screenX;
-                    y = generateY();
+                    funeral();
                     p.decreaseLife();
                 }
             }

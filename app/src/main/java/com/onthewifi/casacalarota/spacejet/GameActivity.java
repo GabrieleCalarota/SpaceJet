@@ -1,12 +1,9 @@
-package com.example.gabriele.spacejet;
+package com.onthewifi.casacalarota.spacejet;
 
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Display;
-import android.view.SurfaceView;
 
 public class GameActivity extends AppCompatActivity {
     private GameView gameView;

@@ -1,10 +1,11 @@
-package com.example.gabriele.spacejet;
+package com.onthewifi.casacalarota.spacejet;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -30,6 +31,8 @@ public class Enemy {
 
     private Rect detectCollision;
 
+    private ArrayList<Bullet> bullets;
+
     public Enemy(Context context,int screenX,int screenY){
         bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.enemy2);
 
@@ -42,6 +45,8 @@ public class Enemy {
         speed = generator.nextInt(enemySpeedRange) + enemyMinSpeed;
         x = screenX;
         y = generator.nextInt(maxY - bitmap.getHeight());
+
+        bullets = new ArrayList<>();
 
         detectCollision = new Rect(x,y,bitmap.getWidth(),bitmap.getHeight());
     }

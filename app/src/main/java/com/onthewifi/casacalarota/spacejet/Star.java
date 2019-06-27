@@ -1,4 +1,4 @@
-package com.example.gabriele.spacejet;
+package com.onthewifi.casacalarota.spacejet;
 
 import java.util.Random;
 
